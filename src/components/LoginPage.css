@@ -1,0 +1,62 @@
+/* src/components/LoginPage.css */
+/* .login-container {
+    height: 100vh;
+    display: flex;
+}
+
+.image-section {
+    flex: 1; 
+    background-image: url('../../public/bg1.avif'); 
+    background-size: cover;
+    background-position: center;
+}
+
+.login-box {
+    flex: 1; 
+    background-color: rgba(255, 255, 255, 0.8); 
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 400px;
+    width: 100%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    margin: auto; 
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.btn {
+    background-color: #007bff;
+    border: none;
+    padding: 10px;
+} */
+/* src/components/LoginPage.css */
+.login-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    background-image: url('../../public/bg4.jpg'); /* Your image URL */
+    background-size: cover; /* Cover the entire viewport */
+    background-position: center; /* Center the background image */
+}
+
+.login-box {
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 400px;
+    width: 100%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.btn {
+    background-color: #007bff;
+    border: none;
+    padding: 10px;
+}

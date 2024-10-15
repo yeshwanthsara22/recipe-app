@@ -1,0 +1,15 @@
+[
+  {
+    "id": 1,
+    "title": "Spaghetti Carbonara",
+    "image": "https://example.com/spaghetti-carbonara.jpg",
+    "description": "A classic Italian pasta dish made with eggs, cheese, pancetta, and pepper."
+  },
+  {
+    "id": 2,
+    "title": "Chicken Curry",
+    "image": "./../../public/chicken-curry-recipe.webp",
+    "description": "A flavorful and spicy dish made with chicken, spices, and coconut milk."
+  }
+  // Add more recipes as needed
+]

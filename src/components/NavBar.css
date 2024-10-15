@@ -1,0 +1,28 @@
+/* src/components/NavBar.css */
+.navbar {
+    width: 100%; /* Full width */
+    background-color: rgba(233, 234, 237, 0.9); /* Semi-transparent background */
+    padding: 10px 20px; /* Padding for navbar */
+    position: fixed; /* Fixed positioning */
+    top: 0; /* Aligns to the top */
+    left: 0; /* Aligns to the left */
+    z-index: 1000; /* Ensures it's above other elements */
+  }
+  
+  .navbar ul {
+    list-style-type: none; /* Removes bullet points */
+    margin: 0; /* Removes default margin */
+    padding: 0; /* Removes default padding */
+    display: flex; /* Aligns items in a row */
+    justify-content: space-around; /* Evenly spaces the items */
+  }
+  
+  .navbar li {
+    color: rgba(164, 240, 147, 0.345); /* Text color */
+    font-size: 18px; /* Font size */
+  }
+  
+  .navbar li:hover {
+    text-decoration: underline; /* Adds underline on hover */
+  }
+  
