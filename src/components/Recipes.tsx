@@ -3,6 +3,7 @@ import Recipe from "./Recipe";
 import NavBar from "./NavBar";
 import ContactUs from "./ContactUs";
 import "./Recipes.css";
+import { useLocation } from "react-router-dom";
 const Recipes: React.FC = () => {
   // Static recipe data
   const recipes = [
@@ -79,23 +80,34 @@ const Recipes: React.FC = () => {
     // Add more recipes as needed
   ];
 
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const searchQuery = searchParams.get("search") || ""; // Get search query
+
+  // Filter recipes based on the search query, if present, otherwise show all recipes
+  const filteredRecipes = recipes.filter((recipe) =>
+    recipe.title.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   return (
     <>
-      <NavBar></NavBar>
+      <NavBar />
       <div className="recipes-container">
-        {recipes.map((recipe) => (
-          <Recipe
-            key={recipe.id}
-            id={recipe.id}
-            title={recipe.title}
-            image={recipe.image}
-            description={recipe.description}
-          />
-        ))}
+        {filteredRecipes.length > 0 ? (
+          filteredRecipes.map((recipe) => (
+            <Recipe
+              key={recipe.id}
+              id={recipe.id}
+              title={recipe.title}
+              description={recipe.description}
+              image={""}
+            />
+          ))
+        ) : (
+          <p>No recipes found for "{searchQuery}".</p>
+        )}
       </div>
-      <div>
-        <ContactUs></ContactUs>
-      </div>
+      <ContactUs />
     </>
   );
 };

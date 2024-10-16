@@ -65,3 +65,7 @@
     color: rgba(164, 240, 147, 0.345); /* Text color */
     font-size: 18px; /* Font size */
     }
+    html {
+      scroll-behavior: smooth;
+    }
+    

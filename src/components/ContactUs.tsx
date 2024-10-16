@@ -1,11 +1,10 @@
-// import React from "react";
+import React from "react";
 import "./ContactUs.css";
-export const ContactUs = () => {
+
+export const ContactUs: React.FC = () => {
   return (
-    <div className="main-color">
-      {/* <button>xx</button> */}
+    <div id="contact-us" className="main-color">
       <footer className="container d-flex flex-wrap justify-content-between align-items-center py-4 main-color">
-        {/* <p className="col-md-4 mb-0 text-black">© Recipe App, Inc</p> */}
         <div className="col-md-4 text-black text-center">
           <p className="mb-1">© Recipe App, Inc</p>
           <h6 className="mb-1">
@@ -15,7 +14,7 @@ export const ContactUs = () => {
           <h6 className="mb-1">Email: support@recipeapp.com</h6>
           <h6 className="mb-1">Phone: +123 456 7890</h6>
         </div>
-        <ul className="nav navbar-dar col-md-4 justify-content-end">
+        <ul className="nav navbar-dark col-md-4 justify-content-end">
           <a href="#" className="nav-link px-2 text-black">
             Home
           </a>
@@ -29,4 +28,5 @@ export const ContactUs = () => {
     </div>
   );
 };
+
 export default ContactUs;
