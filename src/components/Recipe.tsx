@@ -1,17 +1,29 @@
 import React from "react";
 import "./Recipe.css";
+import { useNavigate } from "react-router-dom";
 interface RecipeProps {
+  id: number;
   title: string;
   image: string;
   description: string;
 }
 
-const Recipe: React.FC<RecipeProps> = ({ title, image, description }) => {
+const Recipe: React.FC<RecipeProps> = ({ id, title, image, description }) => {
+  const navigate = useNavigate(); // Get the navigate function
+
+  // Function to handle card click
+  const handleCardClick = () => {
+    navigate(`/recipes/${id}`); // Navigate to the recipe detail page
+  };
   return (
-    <div className="recipe-card">
+    <div
+      className="recipe-card"
+      onClick={handleCardClick}
+      style={{ cursor: "pointer" }}
+    >
       <img src={"./bg4.jpg"} alt={title} className="recipe-image" />
       <h5>{title}</h5>
-      <p className="para">{description}</p>
+      <h6>{description}</h6>
     </div>
   );
 };

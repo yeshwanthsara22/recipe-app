@@ -100,7 +100,7 @@ const NavBar: React.FC = () => {
               {/* Corrected path */}
               Recipes
             </Link>
-            <Link to="/contact" className="nav-item nav-link">
+            <Link to="/contactus" className="nav-item nav-link">
               Contact Us
             </Link>
           </div>
@@ -115,7 +115,7 @@ const NavBar: React.FC = () => {
                 aria-label="Search"
               />
               <div className="input-group-append">
-                <button className="btn btn-outline-success" type="submit">
+                <button className="btn btn-outline-successful" type="submit">
                   Search
                 </button>
               </div>

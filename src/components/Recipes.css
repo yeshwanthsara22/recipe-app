@@ -1,4 +1,4 @@
-.recipes {
+/* .recipes {
     padding: 20px;
 }
 
@@ -13,5 +13,17 @@
 
 .recipes li {
     margin-bottom: 20px;
-}
+} */
 
+.recipes-container {
+  background-image: url("../../public/bg4.jpg"); 
+  background-size: cover; 
+  background-position: center; 
+  min-height: 100vh; 
+  display: fit; 
+  /* flex-direction: column; */
+  /* justify-content: center; */
+  align-items: center;   
+  color: black; 
+  padding: 20px;  
+}
