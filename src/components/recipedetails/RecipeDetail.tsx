@@ -32,6 +32,7 @@ const RecipeDetail: React.FC = () => {
               <source src={recipe.audio} type="audio/mpeg" />
               Your browser does not support the audio element.
             </audio>
+            <p>{recipe.instructions}</p>
           </div>
         </div>
       </div>

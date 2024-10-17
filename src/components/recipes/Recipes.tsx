@@ -10,6 +10,10 @@ import chickencurry from "../../images/images/Chicken_Curry.jpeg";
 import butterchicken from "../../images/images/Butter_Chicken.jpeg";
 import sandwich from "../../images/images/sandwich.jpeg";
 import spaghettiAudio from "../../data/audio.mp3";
+import pancakeaudio from "../../images/mp3/American_Pancake.mp3";
+import chickencurryaudio from "../../images/mp3/chicken_curry.mp3";
+import butterchickenaudio from "../../images/mp3/butter_chicken.mp3";
+import sandwichaudio from "../../images/mp3/sandwich.mp3";
 
 const Recipes: React.FC = () => {
   const recipes = [
@@ -21,6 +25,7 @@ const Recipes: React.FC = () => {
         "A classic Italian pasta dish made with eggs, cheese, pancetta, and pepper.",
       carousel: "yes",
       audio: spaghettiAudio,
+      instructions: [], // Initialize instructions as an empty array
     },
     {
       id: 2,
@@ -29,7 +34,8 @@ const Recipes: React.FC = () => {
       description:
         "A flavorful and spicy dish made with chicken, spices, and coconut milk.",
       carousel: "yes",
-      audio: spaghettiAudio,
+      audio: chickencurryaudio,
+      instructions: [], // Initialize instructions as an empty array
     },
     {
       id: 3,
@@ -37,7 +43,8 @@ const Recipes: React.FC = () => {
       image: sandwich,
       description: "A quick and healthy dish made with mixed vegetables.",
       carousel: "no",
-      audio: spaghettiAudio,
+      audio: sandwichaudio,
+      instructions: [], // Initialize instructions as an empty array
     },
     {
       id: 4,
@@ -46,7 +53,8 @@ const Recipes: React.FC = () => {
       description:
         "Delicious American pancakes served with maple syrup and fresh berries.",
       carousel: "yes",
-      audio: spaghettiAudio,
+      audio: pancakeaudio,
+      instructions: [], // Initialize instructions as an empty array
     },
     {
       id: 5,
@@ -55,7 +63,8 @@ const Recipes: React.FC = () => {
       description:
         "A creamy and delicious Indian dish made with butter, cream, and spices.",
       carousel: "no",
-      audio: spaghettiAudio,
+      audio: butterchickenaudio,
+      instructions: [], // Initialize instructions as an empty array
     },
   ];
 
@@ -71,19 +80,58 @@ const Recipes: React.FC = () => {
     );
   });
 
+  const instructionFiles: Record<string, string> = {
+    1: "/txt/Sandwich.txt",
+    2: "/txt/chicken_curry.txt",
+    3: "/txt/Sandwich.txt",
+    4: "/txt/Pancake.txt",
+    5: "/txt/Butter_chicken.txt",
+  };
+
   const [activeIndex, setActiveIndex] = useState(0);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
   const handleSelect = (selectedIndex: number, e: unknown) => {
     setActiveIndex(selectedIndex);
   };
 
-  const handleCarouselClick = (recipe: (typeof recipes)[number]) => {
-    console.log("Navigating with recipe:", recipe);
-    navigate(`/recipes/${recipe.id}`, { state: { recipe } }); // Pass the entire recipe object
+  const fetchInstructions = async (
+    recipeId: number,
+    recipe: (typeof recipes)[number]
+  ) => {
+    setLoading(true);
+    setError("");
+    try {
+      const response = await fetch(instructionFiles[recipe.id.toString()]); // Updated line
+      // Assuming the naming convention of the instruction files
+      if (!response.ok) {
+        throw new Error("Instructions not found");
+      }
+      const text = await response.text();
+      // const instructions = text
+      //   .split("\n")
+      //   .map((step) => step.trim())
+      //   .filter((step) => step);
+      const instructions = text.split("\n").filter((step) => step);
+      // Update the state with fetched instructions
+      navigate(`/recipes/${recipe.id}`, {
+        state: { recipe: { ...recipe, instructions } },
+      });
+    } catch (error) {
+      console.error("Error fetching instructions:", error);
+      setError("Failed to load instructions.");
+    } finally {
+      setLoading(false);
+    }
   };
+
+  const handleCarouselClick = (recipe: (typeof recipes)[number]) => {
+    fetchInstructions(recipe.id, recipe);
+  };
+
   const handleGridClick = (recipe: (typeof recipes)[number]) => {
-    console.log("Navigating with recipe from grid:", recipe);
-    navigate(`/recipes/${recipe.id}`, { state: { recipe } });
+    fetchInstructions(recipe.id, recipe);
   };
 
   return (
@@ -164,6 +212,8 @@ const Recipes: React.FC = () => {
         ) : (
           <p>No recipes found for "{searchQuery}".</p>
         )}
+        {loading && <p>Loading instructions...</p>}
+        {error && <p className="error-message">{error}</p>}
       </div>
       <ContactUs />
     </>

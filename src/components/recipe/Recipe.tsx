@@ -35,7 +35,7 @@ const Recipe: React.FC<RecipeProps> = ({
       <p className="recipe-description">{description}</p>
       {/* Adding audio player inside the card */}
       <audio controls className="recipe-audio">
-        <source src={audioFile} type="audio/mpeg" />
+        <source src={audio} type="audio/mpeg" />
         Your browser does not support the audio element.
       </audio>
     </div>
