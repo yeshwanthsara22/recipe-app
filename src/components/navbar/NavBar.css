@@ -1,0 +1,59 @@
+/* src/components/NavBar.css */
+
+.navbar {
+  width: 100%; /* Full width */
+  background-color: rgba(195, 242, 203, 0.805); /* Semi-transparent background */
+  color: rgba(164, 240, 147, 0.345);
+  padding: 10px 20px; /* Padding for navbar */
+  position: fixed; /* Fixed positioning */
+  top: 0; /* Aligns to the top */
+  left: 0; /* Aligns to the left */
+  z-index: 1000; /* Ensures it's above other elements */
+}
+
+.navbar ul {
+  list-style-type: none; /* Removes bullet points */
+  margin: 0; /* Removes default margin */
+  padding: 0; /* Removes default padding */
+  display: flex; /* Aligns items in a row */
+  justify-content: space-around; /* Evenly spaces the items */
+  text-align: right;
+}
+.container{
+  text-align: right;
+}
+.navbar li {
+  color: rgba(164, 240, 147, 0.345); /* Text color */
+  font-size: 18px; /* Font size */
+}
+
+.navbar li:hover {
+  text-decoration: underline; /* Adds underline on hover */
+}
+
+/* Adjusting button styles */
+.btn.btn-outline-success {
+  background-color: rgba(149, 180, 199, 0.805); /* Green */
+  border: none;
+  color: black; /* Text color for button */
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  text-align: right;
+}
+
+/* Styles for the search input */
+.navbar .form-control {
+  color: black; /* Set text color to black */
+  width: 150px; /* Reduce the width of the search box */
+  padding: 5px 10px; /* Reduce the padding for smaller size */
+  font-size: 14px; /* Decrease font size */
+  color: black;
+}
+
+/* Change placeholder color */
+.navbar .form-control::placeholder {
+  color: gray; /* Change placeholder color to gray */
+}

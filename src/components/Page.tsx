@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import HomePage from "./HomePage";
+import HomePage from "./homepage/HomePage";
 
 const Page: React.FC = () => {
   const contactRef = useRef<HTMLElement | null>(null); // Create a reference to the "Contact Us" section
