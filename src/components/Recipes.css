@@ -1,29 +1,92 @@
-/* .recipes {
-    padding: 20px;
-}
-
-.recipes h2 {
-    margin-bottom: 10px;
-}
-
-.recipes ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.recipes li {
-    margin-bottom: 20px;
-} */
-
+/* src/components/Recipes.css */
 .recipes-container {
-  background-image: url("../../public/bg4.jpg"); 
-  background-size: cover; 
-  background-position: center; 
-  min-height: 100vh; 
-  display: fit; 
-  /* flex-direction: column; */
-  /* justify-content: center; */
-  align-items: center;   
-  color: black; 
-  padding: 20px;  
+    margin-top: 60px; /* Adjust based on your navbar height */
+    color: black; 
+    padding: 20px;  
 }
+
+/* Carousel Container */
+.carousel-container {
+    margin-bottom: 20px; /* Space below the carousel */
+}
+
+.carousel-item {
+    height: 400px; /* Set a fixed height for carousel items */
+    background-size: cover; /* Ensure the background covers the area */
+    background-position: center; /* Center the background image */
+    color: white; /* Change text color if necessary */
+}
+
+.carousel-caption {
+    background-color: rgba(0, 0, 0, 0.5); /* Adjust the opacity for better contrast */
+    padding: 10px; /* Optional: Add some padding */
+    border-radius: 5px; /* Optional: Add rounded corners */
+}
+
+/* Gap below the carousel */
+.carousel-gap {
+    height: 20px; /* Adjust the height as needed for spacing */
+}
+
+/* Recipe grid container */
+.recipe-grid-container {
+    padding: 10px; /* Optional padding for the grid container */
+    border: 1px solid #ddd; /* Optional border */
+    border-radius: 5px; /* Optional rounded corners */
+    background-color: #f9f9f9; /* Optional background color */
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items */
+}
+
+/* Recipe grid styles */
+.recipe-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Responsive grid */
+    gap: 20px; /* Space between grid items */
+    width: 100%; /* Ensure grid takes full width */
+    max-width: 1200px; /* Optional: Set a max width */
+}
+
+/* Optional: Individual recipe item styling */
+.recipe {
+    background-color: white; /* Background color for each recipe item */
+    border: 1px solid #ddd; /* Optional border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px; /* Padding */
+    text-align: center; /* Center text */
+}
+
+/* Background for the recipe grid container */
+.recipe-grid-container {
+    background-image: url("../../public/bg4.jpg"); 
+    background-size: cover; 
+    background-position: center; 
+    min-height: 100vh; /* Optional: Minimum height */
+    display: flex; 
+    justify-content: center; /* Center items horizontally */
+    align-items: flex-start; /* Align items to the start vertically */
+    color: black; 
+    padding: 20px;  
+}
+/* src/components/Recipes.css */
+
+/* Make the specific recipe table and its cells transparent */
+.transparent-recipe-table {
+    background-color: transparent;
+    border: none;
+  }
+  
+  .transparent-recipe-table td {
+    background-color: transparent;
+    border: none;
+    padding: 20px; /* Optional: Adjust padding for spacing */
+  }
+  
+  /* Ensure the container and individual recipe items are transparent */
+  .transparent-recipe-container {
+    background-color: transparent;
+  }
+  
+
+  

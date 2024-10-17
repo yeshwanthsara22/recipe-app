@@ -4,7 +4,7 @@ import "./ContactUs.css";
 export const ContactUs: React.FC = () => {
   return (
     <div id="contact-us" className="main-color">
-      <footer className="container d-flex flex-wrap justify-content-between align-items-center py-4 main-color">
+      <footer className="container d-flex flex-wrap justify-content-between align-items-center py-2 main-color">
         <div className="col-md-4 text-black text-center">
           <p className="mb-1">© Recipe App, Inc</p>
           <h6 className="mb-1">
