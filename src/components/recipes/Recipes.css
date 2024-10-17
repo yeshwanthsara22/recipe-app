@@ -1,6 +1,6 @@
 /* src/components/Recipes.css */
 .recipes-container {
-    margin-top: 60px; /* Adjust based on your navbar height */
+    margin-top: 800px; /* Adjust based on your navbar height */
     color: black; 
     padding: 20px;  
     background-image: url("../../images/backgroundimages/bg4.jpg"); 

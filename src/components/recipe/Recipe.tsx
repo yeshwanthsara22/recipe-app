@@ -1,30 +1,43 @@
 import React from "react";
 import "./Recipe.css";
 import { useNavigate } from "react-router-dom";
-import x from "../../images/recipeimages/image0_0.jpg";
+import audioFile from "../../data/audio.mp3";
+
 interface RecipeProps {
   id: number;
   title: string;
   image: string;
   description: string;
+  audio: string; // Added audio prop
 }
 
-const Recipe: React.FC<RecipeProps> = ({ id, title, image, description }) => {
-  const navigate = useNavigate(); // Get the navigate function
+const Recipe: React.FC<RecipeProps> = ({
+  id,
+  title,
+  image,
+  description,
+  audio,
+}) => {
+  const navigate = useNavigate();
 
-  // Function to handle card click
   const handleCardClick = () => {
-    navigate(`/recipes/${id}`); // Navigate to the recipe detail page
+    navigate(`/recipes/${id}`);
   };
+
   return (
     <div
       className="recipe-card"
       onClick={handleCardClick}
       style={{ cursor: "pointer" }}
     >
-      <img src={x} alt={title} className="recipe-image" />
-      <h5>{title}</h5>
-      <h6>{description}</h6>
+      <img src={image} alt={title} className="recipe-image" />
+      <h5 className="recipe-title">{title}</h5>
+      <p className="recipe-description">{description}</p>
+      {/* Adding audio player inside the card */}
+      <audio controls className="recipe-audio">
+        <source src={audioFile} type="audio/mpeg" />
+        Your browser does not support the audio element.
+      </audio>
     </div>
   );
 };

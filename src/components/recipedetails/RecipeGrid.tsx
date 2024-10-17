@@ -4,7 +4,13 @@ import React from "react";
 import Recipe from "../recipe/Recipe"; // Import Recipe component
 import x from "./../../images/backgroundimages/bg4.jpg";
 interface RecipeGridProps {
-  recipes: { id: number; title: string; description: string; image: string }[];
+  recipes: {
+    id: number;
+    title: string;
+    description: string;
+    image: string;
+    audio: string;
+  }[];
 }
 
 const RecipeGrid: React.FC<RecipeGridProps> = ({ recipes }) => {
@@ -18,6 +24,7 @@ const RecipeGrid: React.FC<RecipeGridProps> = ({ recipes }) => {
             title={recipe.title}
             description={recipe.description}
             image={x} // Pass the image prop correctly
+            audio={recipe.audio}
           />
         ))}
       </div>
