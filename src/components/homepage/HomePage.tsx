@@ -9,10 +9,10 @@ const HomePage: React.FC = () => {
     <>
       <div className="home-page">
         <NavBar />
-        <h1>Welcome to the Home Page!</h1>
+        <h1>Welcome to the Recipe world!!</h1>
         {/* Add your recipe content here */}
       </div>
-      <div className="footer">
+      <div className="footer" id="contact-us">
         <ContactUs />
       </div>
     </>

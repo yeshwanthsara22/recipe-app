@@ -7,9 +7,16 @@
     flex-direction: column; /* Stacks children vertically */
     align-items: center; /* Centers children horizontally */
     justify-content: center; /* Centers children vertically */
-    color: white; /* Text color for visibility */
+    color: black; /* Text color for visibility */
   }
-
+  .home-page h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Shadow for better readability */
+    margin: 0;
+  }
   .footer {
     position: absolute;
     bottom: 0;

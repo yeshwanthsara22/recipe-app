@@ -25,6 +25,12 @@ const NavBar: React.FC = () => {
     // Redirect to login page
     navigate("/login");
   };
+  const scrollToContactUs = () => {
+    const contactUsElement = document.getElementById("contact-us");
+    if (contactUsElement) {
+      contactUsElement.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
     <nav className="navbar navbar-expand-lg navbar-light">
@@ -59,9 +65,9 @@ const NavBar: React.FC = () => {
             <Link to="/recipes" className="nav-item nav-link">
               Recipes
             </Link>
-            <Link to="#contact-us" className="nav-item nav-link">
+            <span className="nav-item nav-link" onClick={scrollToContactUs}>
               Contact Us
-            </Link>
+            </span>
           </div>
 
           {/* Search bar */}
