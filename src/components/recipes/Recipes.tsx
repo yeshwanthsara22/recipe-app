@@ -5,27 +5,41 @@ import { Carousel } from "react-bootstrap";
 import "./Recipes.css";
 import { useLocation, useNavigate } from "react-router-dom";
 import Recipe from "../recipe/Recipe";
-import americanpancake from "../../images/images/American_Pancakes.jpeg";
-import chickencurry from "../../images/images/Chicken_Curry.jpeg";
+import americanpancake from "../../images/images/American_Pancakes.jpg";
+import chickencurry from "../../images/images/chicken_curry.jpg";
 import butterchicken from "../../images/images/Butter_Chicken.jpeg";
-import sandwich from "../../images/images/sandwich.jpeg";
-import spaghettiAudio from "../../data/audio.mp3";
-import pancakeaudio from "../../images/mp3/American_Pancake.mp3";
+import sandwich from "../../images/images/sandwich.jpg";
+import chicken_caprese_salad from "../../images/images/chicken-caprese-salad.jpg";
+import smoothie from "../../images/images/smoothie.jpg";
+import noodles from "../../images/images/Veggie_Stir-Fry_with_Noodles.webp";
+import chiaPudding from "../../images/images/chiaPudding.webp";
+import avacadotoast from "../../images/images/avacado_toast.jpg";
+import burrito from "../../images/images/burrito.jpg";
+
+// import spaghettiAudio from "../../data/audio.mp3";
+import pancakeaudio from "../../images/mp3/pancake.mp3";
 import chickencurryaudio from "../../images/mp3/chicken_curry.mp3";
 import butterchickenaudio from "../../images/mp3/butter_chicken.mp3";
 import sandwichaudio from "../../images/mp3/sandwich.mp3";
+import chicken_caprese_salad_audio from "../../images/mp3/caprese_salad_with_grilled_chicken.mp3";
+import smoothieAuido from "../../images/mp3/smoothie.mp3";
+import noodlesAudio from "../../images/mp3/veggie_stri_fry_with_noodles.mp3";
+import chiaPuddingAudio from "../../images/mp3/chia_pudding.mp3";
+import avacadotoastAudio from "../../images/mp3/avacado_toast.mp3";
+import BurritoAudio from "../../images/mp3/burrito.mp3";
 
 const Recipes: React.FC = () => {
   const recipes = [
     {
       id: 1,
-      title: "Spaghetti Carbonara",
-      image: chickencurry,
+      title: "chicken caprese salad",
+      image: chicken_caprese_salad,
       description:
-        "A classic Italian pasta dish made with eggs, cheese, pancetta, and pepper.",
+        "Chicken Caprese salad combines grilled chicken, tomatoes, mozzarella, and basil.",
       carousel: "yes",
-      audio: spaghettiAudio,
+      audio: chicken_caprese_salad_audio,
       instructions: [], // Initialize instructions as an empty array
+      ingredients: [],
     },
     {
       id: 2,
@@ -33,18 +47,20 @@ const Recipes: React.FC = () => {
       image: chickencurry,
       description:
         "A flavorful and spicy dish made with chicken, spices, and coconut milk.",
-      carousel: "yes",
+      carousel: "no",
       audio: chickencurryaudio,
       instructions: [], // Initialize instructions as an empty array
+      ingredients: [],
     },
     {
       id: 3,
       title: "Sandwich",
       image: sandwich,
       description: "A quick and healthy dish made with mixed vegetables.",
-      carousel: "no",
+      carousel: "yes",
       audio: sandwichaudio,
       instructions: [], // Initialize instructions as an empty array
+      ingredients: [],
     },
     {
       id: 4,
@@ -55,16 +71,73 @@ const Recipes: React.FC = () => {
       carousel: "yes",
       audio: pancakeaudio,
       instructions: [], // Initialize instructions as an empty array
+      ingredients: [],
     },
     {
       id: 5,
       title: "Butter Chicken",
       image: butterchicken,
       description:
-        "A creamy and delicious Indian dish made with butter, cream, and spices.",
+        "Butter chicken is a creamy, spiced tomato curry made with tender chicken pieces.",
       carousel: "no",
       audio: butterchickenaudio,
       instructions: [], // Initialize instructions as an empty array
+      ingredients: [],
+    },
+    {
+      id: 6,
+      title: "burrito",
+      image: burrito,
+      description:
+        "A burrito is a tortilla wrapped around a filling of beans, meat, and other ingredients.",
+      carousel: "no",
+      audio: BurritoAudio,
+      instructions: [], // Initialize instructions as an empty array
+      ingredients: [],
+    },
+    {
+      id: 7,
+      title: "ChiaPudding",
+      image: chiaPudding,
+      description:
+        "Chia pudding is a thick dessert made by soaking chia seeds in milk.",
+      carousel: "yes",
+      audio: chiaPuddingAudio,
+      instructions: [], // Initialize instructions as an empty array
+      ingredients: [],
+    },
+    {
+      id: 8,
+      title: "smoothie",
+      image: smoothie,
+      description:
+        "A smoothie is a blended drink made from fruits, vegetables, and often yogurt or milk.",
+      carousel: "no",
+      audio: smoothieAuido,
+      instructions: [], // Initialize instructions as an empty array
+      ingredients: [],
+    },
+    {
+      id: 9,
+      title: "Viggie Noodles",
+      image: noodles,
+      description:
+        "Veggie noodles are stir-fried noodles mixed with a variety of fresh vegetables.",
+      carousel: "no",
+      audio: noodlesAudio,
+      instructions: [], // Initialize instructions as an empty array
+      ingredients: [],
+    },
+    {
+      id: 10,
+      title: "Avacado Toast",
+      image: avacadotoast,
+      description:
+        "Avocado toast is toasted bread topped with mashed avocado and seasonings.",
+      carousel: "no",
+      audio: avacadotoastAudio,
+      instructions: [], // Initialize instructions as an empty array
+      ingredients: [],
     },
   ];
 
@@ -81,11 +154,16 @@ const Recipes: React.FC = () => {
   });
 
   const instructionFiles: Record<string, string> = {
-    1: "/txt/Sandwich.txt",
+    1: "/txt/caprese_salad_with_grill_chicken.txt",
     2: "/txt/chicken_curry.txt",
     3: "/txt/Sandwich.txt",
     4: "/txt/Pancake.txt",
     5: "/txt/Butter_chicken.txt",
+    6: "/txt/Burrito.txt",
+    7: "/txt/chiapudding.txt",
+    8: "/txt/smoothie.txt",
+    9: "/txt/veggie_noodles.txt",
+    10: "txt/avacado_toast.txt",
   };
 
   const [activeIndex, setActiveIndex] = useState(0);
@@ -104,19 +182,25 @@ const Recipes: React.FC = () => {
     setError("");
     try {
       const response = await fetch(instructionFiles[recipe.id.toString()]); // Updated line
-      // Assuming the naming convention of the instruction files
+      // const response = await fetch(
+      //   "/Users/yeshwanth/Documents/education/courses/HCI/project_design/recipe-app/src/images/txt/Sandwich.txt"
+      // );
       if (!response.ok) {
         throw new Error("Instructions not found");
       }
       const text = await response.text();
-      // const instructions = text
-      //   .split("\n")
-      //   .map((step) => step.trim())
-      //   .filter((step) => step);
-      const instructions = text.split("\n").filter((step) => step);
-      // Update the state with fetched instructions
+      const [instructionsText, ingredientsText] = text
+        .split("=== INGREDIENTS ===")
+        .map((part) => part.trim());
+
+      const instructions = instructionsText.split("\n").filter((step) => step);
+      const ingredients = ingredientsText.split("\n").filter((item) => item);
+
+      console.log("Instructions:", instructions);
+      console.log("Ingredients:", ingredients);
+
       navigate(`/recipes/${recipe.id}`, {
-        state: { recipe: { ...recipe, instructions } },
+        state: { recipe: { ...recipe, instructions, ingredients } },
       });
     } catch (error) {
       console.error("Error fetching instructions:", error);

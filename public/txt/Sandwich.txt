@@ -1,32 +1,31 @@
-Sandwich:
-Ingredients:
-    4 slices of bread (white, whole wheat, or multigrain)
-    2 tablespoons butter or mayonnaise
-    4 slices of cheese (cheddar, mozzarella, or your favorite)
-    1 tomato (sliced)
-    1 cucumber (sliced)
-    1 small onion (sliced)
-    4-6 lettuce leaves
-    Salt and pepper (to taste)
-    Optional: mustard, ketchup, or other sauces
-    Optional: sliced ham, turkey, or any deli meat for a non-vegetarian version
-Instructions:
-    Prepare the Bread:
-        Spread a thin layer of butter or mayonnaise on one side of each slice of bread. This adds flavor and helps hold the sandwich together.
-        Assemble the Sandwich:
-        On the buttered side of the first slice of bread, place a slice of cheese.
-        Add a layer of tomato slices, cucumber slices, and onion slices.
-        Add salt and pepper to taste.
-        Place lettuce leaves on top of the vegetables.
-        If you're adding any sauces like mustard or ketchup, drizzle them now.
-        Add another slice of cheese on top for extra creaminess.
-    Add the Top Slice:
-        Place the second slice of bread (butter side down) on top of the sandwich fillings.
-    Optional: Grill or Toast:
-        If you like your sandwich warm, you can grill or toast it in a sandwich maker or on a heated pan for 2-3 minutes on each side, until the bread is golden and crispy, and the cheese melts.
-    Serve:
-        Cut the sandwich in half and serve with chips, salad, or a pickle on the side.
-        Enjoy your delicious homemade sandwich!
 
-
-
+=== INSTRUCTIONS ===
+Prepare the Bread:
+Spread a thin layer of butter or mayonnaise on one side of each slice of bread. This adds flavor and helps hold the sandwich together.
+Assemble the Sandwich:
+On the buttered side of the first slice of bread, place a slice of cheese.
+Add a layer of tomato slices, cucumber slices, and onion slices.
+Add salt and pepper to taste.
+Place lettuce leaves on top of the vegetables.
+If you're adding any sauces like mustard or ketchup, drizzle them now.
+Add another slice of cheese on top for extra creaminess.
+Add the Top Slice:
+Place the second slice of bread (butter side down) on top of the sandwich fillings.
+Optional: Grill or Toast:
+If you like your sandwich warm, you can grill or toast it in a sandwich maker or on a heated pan for 2-3 minutes on each side, until the bread is golden and crispy, and the cheese melts.
+Serve:
+Cut the sandwich in half and serve with chips, salad, or a pickle on the side.
+Enjoy your delicious homemade sandwich
+=== INGREDIENTS ===
+4 slices of bread (white, whole wheat, or multigrain)
+2 tablespoons butter or mayonnaise
+4 slices of cheese (cheddar, mozzarella, or your favorite)
+1 tomato (sliced)
+1 cucumber (sliced)
+1 small onion (sliced)
+4-6 lettuce leaves
+Salt and pepper (to taste)
+Optional: mustard, ketchup, or other sauces
+Optional: sliced ham, turkey, or any deli meat for a non-vegetarian version
+ 
+ 

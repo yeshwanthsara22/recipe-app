@@ -153,10 +153,10 @@ const LoginPage: React.FC = () => {
             <div className="form-group mb-3">
               <label htmlFor="username">Username</label>
               <input
-                type="text"
+                type="email"
                 className="form-control"
                 id="username"
-                placeholder="Enter username"
+                placeholder="Enter email or username"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
               />
@@ -201,7 +201,7 @@ const LoginPage: React.FC = () => {
                 type="email"
                 className="form-control"
                 id="email"
-                placeholder="Enter email"
+                placeholder="Enter email or Username"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />

@@ -1,24 +1,25 @@
-Ingredients:
-    1 1/2 cups all-purpose flour
-    1 tablespoon sugar
-    1 tablespoon baking powder
-    1/2 teaspoon salt
-    1 1/4 cups milk
-    1 egg
-    3 tablespoons unsalted butter (melted)
-    1 teaspoon vanilla extract (optional)
-    Butter or oil (for cooking)
-Instructions:
-    Mix the Dry Ingredients:
-    In a large bowl, whisk together the flour, sugar, baking powder, and salt.
-    Prepare the Wet Ingredients:
-    In another bowl, whisk together the milk, egg, melted butter, and vanilla extract until smooth.
-    Combine the Ingredients:
-    Pour the wet ingredients into the dry ingredients. Stir gently until just combined. The batter should be a bit lumpy, which will help make fluffy pancakes. Avoid overmixing.
-    Heat the Pan:
-    Heat a non-stick skillet or griddle over medium heat. Lightly grease with butter or oil.
-    Cook the Pancakes:
-    Pour 1/4 cup of batter onto the pan for each pancake. Cook until bubbles appear on the surface and the edges start to look set (about 2-3 minutes). Flip the pancake and cook for another 1-2 minutes until golden brown on both sides.
-    Serve hot with butter, syrup, fruit, or your favorite toppings!
-
-
+=== INSTRUCTIONS ===
+Mix the Dry Ingredients:
+In a large bowl, whisk together the flour, sugar, baking powder, and salt.
+Prepare the Wet Ingredients:
+In another bowl, whisk together the milk, egg, melted butter, and vanilla extract until smooth.
+Combine the Ingredients:
+Pour the wet ingredients into the dry ingredients. Stir gently until just combined. The batter should be a bit lumpy, which will help make fluffy pancakes. Avoid overmixing.
+Heat the Pan:
+Heat a non-stick skillet or griddle over medium heat. Lightly grease with butter or oil.
+Cook the Pancakes:
+Pour 1/4 cup of batter onto the pan for each pancake. Cook until bubbles appear on the surface and the edges start to look set (about 2-3 minutes). Flip the pancake and cook for another 1-2 minutes until golden brown on both sides.
+Serve hot with butter, syrup, fruit, or your favorite toppings
+=== INGREDIENTS ===
+1 1/2 cups all-purpose flour
+1 tablespoon sugar
+1 tablespoon baking powder
+1/2 teaspoon salt
+1 1/4 cups milk
+1 egg
+3 tablespoons unsalted butter
+1 teaspoon vanilla extract (optional)
+Butter or oil
+ 
+ 
+ 
