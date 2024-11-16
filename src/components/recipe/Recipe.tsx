@@ -9,6 +9,7 @@ interface RecipeProps {
   image: string;
   description: string;
   audio: string; // Added audio prop
+  calories: number;
 }
 
 const Recipe: React.FC<RecipeProps> = ({
@@ -17,6 +18,7 @@ const Recipe: React.FC<RecipeProps> = ({
   image,
   description,
   audio,
+  calories,
 }) => {
   const navigate = useNavigate();
 
@@ -33,6 +35,7 @@ const Recipe: React.FC<RecipeProps> = ({
       <img src={image} alt={title} className="recipe-image" />
       <h5 className="recipe-title">{title}</h5>
       <p className="recipe-description">{description}</p>
+      <p className="recipe-description">Calories: {calories}</p>
       {/* Adding audio player inside the card */}
       <audio controls className="recipe-audio">
         <source src={audio} type="audio/mpeg" />

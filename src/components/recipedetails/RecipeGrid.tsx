@@ -10,6 +10,7 @@ interface RecipeGridProps {
     description: string;
     image: string;
     audio: string;
+    calories: number;
   }[];
 }
 
@@ -25,6 +26,7 @@ const RecipeGrid: React.FC<RecipeGridProps> = ({ recipes }) => {
             description={recipe.description}
             image={x} // Pass the image prop correctly
             audio={recipe.audio}
+            calories={recipe.calories}
           />
         ))}
       </div>

@@ -13,6 +13,7 @@ interface Recipe {
   audio: string;
   ingredients: string[];
   instructions: string[];
+  calories: number;
 }
 
 const RecipeDetail: React.FC = () => {
@@ -37,6 +38,7 @@ const RecipeDetail: React.FC = () => {
           </div>
           <div className="recipe-details-container1">
             <h1>{recipe.title}</h1>
+            <p>calories : {recipe.calories}</p>
             <p>{recipe.description}</p>
 
             {/* Audio Section */}

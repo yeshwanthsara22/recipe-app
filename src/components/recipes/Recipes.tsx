@@ -36,12 +36,13 @@ const Recipes: React.FC = () => {
       image: chicken_caprese_salad,
       description:
         "Chicken Caprese salad combines grilled chicken, tomatoes, mozzarella, and basil.",
-      category: "Meal", // Added category
+      category: "Meal",
       carousel: "yes",
       audio: chicken_caprese_salad_audio,
       instructions: [],
       ingredients: [],
       date: "2023-10-01",
+      calories: 350, // Added calories
     },
     {
       id: 2,
@@ -49,24 +50,26 @@ const Recipes: React.FC = () => {
       image: chickencurry,
       description:
         "A flavorful and spicy dish made with chicken, spices, and coconut milk.",
-      category: "Meal", // Added category
+      category: "Meal",
       carousel: "no",
       audio: chickencurryaudio,
       instructions: [],
       ingredients: [],
       date: "2023-10-01",
+      calories: 450, // Added calories
     },
     {
       id: 3,
       title: "Sandwich",
       image: sandwich,
       description: "A quick and healthy dish made with mixed vegetables.",
-      category: "Breakfast", // Added category
+      category: "Breakfast",
       carousel: "yes",
       audio: sandwichaudio,
       instructions: [],
       ingredients: [],
       date: "2023-10-05",
+      calories: 250, // Added calories
     },
     {
       id: 4,
@@ -74,12 +77,13 @@ const Recipes: React.FC = () => {
       image: americanpancake,
       description:
         "Delicious American pancakes served with maple syrup and fresh berries.",
-      category: "Breakfast", // Added category
+      category: "Breakfast",
       carousel: "yes",
       audio: pancakeaudio,
       instructions: [],
       ingredients: [],
       date: "2023-10-05",
+      calories: 400, // Added calories
     },
     {
       id: 5,
@@ -87,12 +91,13 @@ const Recipes: React.FC = () => {
       image: butterchicken,
       description:
         "Butter chicken is a creamy, spiced tomato curry made with tender chicken pieces.",
-      category: "Dinner", // Added category
+      category: "Dinner",
       carousel: "no",
       audio: butterchickenaudio,
       instructions: [],
       ingredients: [],
       date: "2023-10-05",
+      calories: 500, // Added calories
     },
     {
       id: 6,
@@ -100,12 +105,13 @@ const Recipes: React.FC = () => {
       image: burrito,
       description:
         "A burrito is a tortilla wrapped around a filling of beans, meat, and other ingredients.",
-      category: "Meal", // Added category
+      category: "Meal",
       carousel: "no",
       audio: BurritoAudio,
       instructions: [],
       ingredients: [],
       date: "2023-10-05",
+      calories: 600, // Added calories
     },
     {
       id: 7,
@@ -113,12 +119,13 @@ const Recipes: React.FC = () => {
       image: chiaPudding,
       description:
         "Chia pudding is a thick dessert made by soaking chia seeds in milk.",
-      category: "Breakfast", // Added category
+      category: "Breakfast",
       carousel: "yes",
       audio: chiaPuddingAudio,
       instructions: [],
       ingredients: [],
       date: "2023-10-01",
+      calories: 200, // Added calories
     },
     {
       id: 8,
@@ -126,12 +133,13 @@ const Recipes: React.FC = () => {
       image: smoothie,
       description:
         "A smoothie is a blended drink made from fruits, vegetables, and often yogurt or milk.",
-      category: "Smoothie", // Added category
+      category: "Smoothie",
       carousel: "no",
       audio: smoothieAuido,
       instructions: [],
       ingredients: [],
       date: "2023-10-01",
+      calories: 180, // Added calories
     },
     {
       id: 9,
@@ -139,12 +147,13 @@ const Recipes: React.FC = () => {
       image: noodles,
       description:
         "Veggie noodles are stir-fried noodles mixed with a variety of fresh vegetables.",
-      category: "Meal", // Added category
+      category: "Meal",
       carousel: "no",
       audio: noodlesAudio,
       instructions: [],
       ingredients: [],
       date: "2023-10-05",
+      calories: 320, // Added calories
     },
     {
       id: 10,
@@ -152,12 +161,13 @@ const Recipes: React.FC = () => {
       image: avacadotoast,
       description:
         "Avocado toast is toasted bread topped with mashed avocado and seasonings.",
-      category: "Breakfast", // Added category
+      category: "Breakfast",
       carousel: "no",
       audio: avacadotoastAudio,
       instructions: [],
       ingredients: [],
       date: "2023-10-05",
+      calories: 220, // Added calories
     },
   ];
 
@@ -352,6 +362,7 @@ const Recipes: React.FC = () => {
                                     description={recipe.description}
                                     image={recipe.image}
                                     audio={recipe.audio} // Pass the audio field
+                                    calories={recipe.calories}
                                   />
                                 </td>
                               ))}
