@@ -118,3 +118,67 @@
     background-color: #f9f9f9; /* Zebra striping */
   }
   
+  /* .sort-dropdown {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    cursor: pointer;
+    text-align: center;
+  }
+  
+  .sort-dropdown select {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  .category-dropdown {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    cursor: pointer;
+    text-align: center;
+  }
+  
+  .category-dropdown select {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  } */
+
+  .filters-container {
+    display: flex;
+    justify-content: space-between; /* Puts space between the items */
+    gap: 2rem; /* Adds space between the items horizontally */
+    margin-bottom: 1rem; /* Space at the bottom */
+    background-color: white; /* Set the background to white */
+    padding: 1rem; /* Adds padding inside the container */
+    border-radius: 8px; /* Adds rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
+  }
+  
+  .filter-item {
+    display: flex;
+    flex-direction: column; /* Keeps label above the select */
+    width: 48%; /* Adjusts the width of the dropdown */
+  }
+  
+  label {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  
+  select {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  

@@ -64,4 +64,10 @@
     color: red; /* Set the text color to red */
     margin: 10px 0; /* Add some margin for spacing */
   }
+  .success-message {
+    color: green;
+    font-weight: bold;
+    margin-top: 10px;
+    text-align: center;
+  }
   

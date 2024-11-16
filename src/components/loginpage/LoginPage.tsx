@@ -1,68 +1,3 @@
-// import React, { useState } from "react";
-// import "./LoginPage.css";
-// import { useNavigate } from "react-router-dom";
-
-// const LoginPage: React.FC = () => {
-//   const [email, setEmail] = useState("");
-//   const [password, setPassword] = useState("");
-//   const [errorMessage, setErrorMessage] = useState<string | null>(null); // For error handling
-//   const navigate = useNavigate(); // Make sure this line is present
-
-//   const handleLogin = () => {
-//     // Simple validation check
-//     if (!email || !password) {
-//       setErrorMessage("Please fill in all fields.");
-//       return;
-//     }
-
-//     // Simulate authentication (hardcoded check for this example)
-//     if (email === "a" && password === "a") {
-//       localStorage.setItem("token", "user-authenticated"); // Store token
-//       setErrorMessage(null); // Clear error if login is successful
-//       navigate("/home"); // Navigate to home page
-//     } else {
-//       setErrorMessage("Invalid email or password."); // Show error message for invalid credentials
-//     }
-//   };
-
-//   return (
-//     <div className="login-container">
-//       <div className="login-box">
-//         <h2 className="text-center mb-4">Login</h2>
-//         {errorMessage && <p className="error-message">{errorMessage}</p>}{" "}
-//         {/* Display error message */}
-//         <div className="form-group mb-3">
-//           <label htmlFor="email">Email</label>
-//           <input
-//             type="email"
-//             className="form-control"
-//             id="email"
-//             placeholder="Enter email"
-//             value={email}
-//             onChange={(e) => setEmail(e.target.value)}
-//           />
-//         </div>
-//         <div className="form-group mb-3">
-//           <label htmlFor="password">Password</label>
-//           <input
-//             type="password"
-//             className="form-control"
-//             id="password"
-//             placeholder="Enter password"
-//             value={password}
-//             onChange={(e) => setPassword(e.target.value)}
-//           />
-//         </div>
-//         <button className="btn btn-primary w-100" onClick={handleLogin}>
-//           Login
-//         </button>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default LoginPage;
-
 import React, { useState } from "react";
 import "./LoginPage.css";
 import { useNavigate } from "react-router-dom";
@@ -79,6 +14,7 @@ const LoginPage: React.FC = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [isSignup, setIsSignup] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [successMessage, setSuccessMessage] = useState<string | null>(null);
   const navigate = useNavigate();
 
   // Default user account
@@ -124,8 +60,8 @@ const LoginPage: React.FC = () => {
 
     const newUser = { username, password };
     setUsers((prevUsers) => [...prevUsers, newUser]);
-    console.log("Account created:", newUser);
     setErrorMessage(null);
+    setSuccessMessage("Account created successfully! You can now log in.");
     setIsSignup(false);
     setEmail(""); // Clear login fields
     setPassword("");
@@ -134,6 +70,7 @@ const LoginPage: React.FC = () => {
   const toggleSignup = () => {
     setIsSignup(!isSignup);
     setErrorMessage(null);
+    setSuccessMessage(null);
     setEmail(""); // Clear login fields on mode switch
     setPassword("");
     setUsername("");
@@ -147,6 +84,7 @@ const LoginPage: React.FC = () => {
           {isSignup ? "Create Account" : "Login"}
         </h2>
         {errorMessage && <p className="error-message">{errorMessage}</p>}
+        {successMessage && <p className="success-message">{successMessage}</p>}
 
         {isSignup ? (
           <>

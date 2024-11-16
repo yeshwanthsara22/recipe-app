@@ -32,14 +32,16 @@ const Recipes: React.FC = () => {
   const recipes = [
     {
       id: 1,
-      title: "chicken caprese salad",
+      title: "Chicken Caprese Salad",
       image: chicken_caprese_salad,
       description:
         "Chicken Caprese salad combines grilled chicken, tomatoes, mozzarella, and basil.",
+      category: "Meal", // Added category
       carousel: "yes",
       audio: chicken_caprese_salad_audio,
-      instructions: [], // Initialize instructions as an empty array
+      instructions: [],
       ingredients: [],
+      date: "2023-10-01",
     },
     {
       id: 2,
@@ -47,20 +49,24 @@ const Recipes: React.FC = () => {
       image: chickencurry,
       description:
         "A flavorful and spicy dish made with chicken, spices, and coconut milk.",
+      category: "Meal", // Added category
       carousel: "no",
       audio: chickencurryaudio,
-      instructions: [], // Initialize instructions as an empty array
+      instructions: [],
       ingredients: [],
+      date: "2023-10-01",
     },
     {
       id: 3,
       title: "Sandwich",
       image: sandwich,
       description: "A quick and healthy dish made with mixed vegetables.",
+      category: "Breakfast", // Added category
       carousel: "yes",
       audio: sandwichaudio,
-      instructions: [], // Initialize instructions as an empty array
+      instructions: [],
       ingredients: [],
+      date: "2023-10-05",
     },
     {
       id: 4,
@@ -68,10 +74,12 @@ const Recipes: React.FC = () => {
       image: americanpancake,
       description:
         "Delicious American pancakes served with maple syrup and fresh berries.",
+      category: "Breakfast", // Added category
       carousel: "yes",
       audio: pancakeaudio,
-      instructions: [], // Initialize instructions as an empty array
+      instructions: [],
       ingredients: [],
+      date: "2023-10-05",
     },
     {
       id: 5,
@@ -79,65 +87,77 @@ const Recipes: React.FC = () => {
       image: butterchicken,
       description:
         "Butter chicken is a creamy, spiced tomato curry made with tender chicken pieces.",
+      category: "Dinner", // Added category
       carousel: "no",
       audio: butterchickenaudio,
-      instructions: [], // Initialize instructions as an empty array
+      instructions: [],
       ingredients: [],
+      date: "2023-10-05",
     },
     {
       id: 6,
-      title: "burrito",
+      title: "Burrito",
       image: burrito,
       description:
         "A burrito is a tortilla wrapped around a filling of beans, meat, and other ingredients.",
+      category: "Meal", // Added category
       carousel: "no",
       audio: BurritoAudio,
-      instructions: [], // Initialize instructions as an empty array
+      instructions: [],
       ingredients: [],
+      date: "2023-10-05",
     },
     {
       id: 7,
-      title: "ChiaPudding",
+      title: "Chia Pudding",
       image: chiaPudding,
       description:
         "Chia pudding is a thick dessert made by soaking chia seeds in milk.",
+      category: "Breakfast", // Added category
       carousel: "yes",
       audio: chiaPuddingAudio,
-      instructions: [], // Initialize instructions as an empty array
+      instructions: [],
       ingredients: [],
+      date: "2023-10-01",
     },
     {
       id: 8,
-      title: "smoothie",
+      title: "Smoothie",
       image: smoothie,
       description:
         "A smoothie is a blended drink made from fruits, vegetables, and often yogurt or milk.",
+      category: "Smoothie", // Added category
       carousel: "no",
       audio: smoothieAuido,
-      instructions: [], // Initialize instructions as an empty array
+      instructions: [],
       ingredients: [],
+      date: "2023-10-01",
     },
     {
       id: 9,
-      title: "Viggie Noodles",
+      title: "Veggie Noodles",
       image: noodles,
       description:
         "Veggie noodles are stir-fried noodles mixed with a variety of fresh vegetables.",
+      category: "Meal", // Added category
       carousel: "no",
       audio: noodlesAudio,
-      instructions: [], // Initialize instructions as an empty array
+      instructions: [],
       ingredients: [],
+      date: "2023-10-05",
     },
     {
       id: 10,
-      title: "Avacado Toast",
+      title: "Avocado Toast",
       image: avacadotoast,
       description:
         "Avocado toast is toasted bread topped with mashed avocado and seasonings.",
+      category: "Breakfast", // Added category
       carousel: "no",
       audio: avacadotoastAudio,
-      instructions: [], // Initialize instructions as an empty array
+      instructions: [],
       ingredients: [],
+      date: "2023-10-05",
     },
   ];
 
@@ -145,12 +165,39 @@ const Recipes: React.FC = () => {
   const navigate = useNavigate();
   const searchParams = new URLSearchParams(location.search);
   const searchQuery = searchParams.get("search") || "";
+  const [selectedCategory, setSelectedCategory] = useState<string>("All");
 
   const filteredRecipes = recipes.filter((recipe) => {
+    // Filter based on search query
     const searchWords = searchQuery.toLowerCase().split(" ");
-    return searchWords.every((word) =>
+    const matchesSearch = searchWords.every((word) =>
       recipe.title.toLowerCase().includes(word)
     );
+
+    // Filter based on category
+    const matchesCategory =
+      selectedCategory === "All" || recipe.category === selectedCategory;
+
+    return matchesSearch && matchesCategory;
+  });
+
+  // New state for sorting option
+  const [sortOrder, setSortOrder] = useState<string>("A-Z");
+
+  // Sort the recipes based on the selected option
+  const sortedRecipes = [...filteredRecipes].sort((a, b) => {
+    switch (sortOrder) {
+      case "A-Z":
+        return a.title.localeCompare(b.title);
+      case "Z-A":
+        return b.title.localeCompare(a.title);
+      case "Old-New":
+        return new Date(a.date).getTime() - new Date(b.date).getTime();
+      case "New-Old":
+        return new Date(b.date).getTime() - new Date(a.date).getTime();
+      default:
+        return 0;
+    }
   });
 
   const instructionFiles: Record<string, string> = {
@@ -163,7 +210,7 @@ const Recipes: React.FC = () => {
     7: "/txt/chiapudding.txt",
     8: "/txt/smoothie.txt",
     9: "/txt/veggie_noodles.txt",
-    10: "txt/avacado_toast.txt",
+    10: "/txt/avacado_toast.txt",
   };
 
   const [activeIndex, setActiveIndex] = useState(0);
@@ -181,10 +228,7 @@ const Recipes: React.FC = () => {
     setLoading(true);
     setError("");
     try {
-      const response = await fetch(instructionFiles[recipe.id.toString()]); // Updated line
-      // const response = await fetch(
-      //   "/Users/yeshwanth/Documents/education/courses/HCI/project_design/recipe-app/src/images/txt/Sandwich.txt"
-      // );
+      const response = await fetch(instructionFiles[recipe.id.toString()]);
       if (!response.ok) {
         throw new Error("Instructions not found");
       }
@@ -192,12 +236,8 @@ const Recipes: React.FC = () => {
       const [instructionsText, ingredientsText] = text
         .split("=== INGREDIENTS ===")
         .map((part) => part.trim());
-
       const instructions = instructionsText.split("\n").filter((step) => step);
       const ingredients = ingredientsText.split("\n").filter((item) => item);
-
-      console.log("Instructions:", instructions);
-      console.log("Ingredients:", ingredients);
 
       navigate(`/recipes/${recipe.id}`, {
         state: { recipe: { ...recipe, instructions, ingredients } },
@@ -218,18 +258,22 @@ const Recipes: React.FC = () => {
     fetchInstructions(recipe.id, recipe);
   };
 
+  const handleCategoryChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setSelectedCategory(e.target.value);
+  };
+
   return (
     <>
       <NavBar />
       <div className="recipes-container">
-        {filteredRecipes.length > 0 ? (
+        {sortedRecipes.length > 0 ? (
           <table className="costum-table">
             <tbody>
               <tr>
                 <td>
                   <div className="carousel-container">
                     <Carousel activeIndex={activeIndex} onSelect={handleSelect}>
-                      {filteredRecipes
+                      {sortedRecipes
                         .filter((recipe) => recipe.carousel === "yes")
                         .map((recipe) => (
                           <Carousel.Item
@@ -253,9 +297,40 @@ const Recipes: React.FC = () => {
               <tr>
                 <td>
                   <div className="recipe-grid-container">
+                    <div className="filters-container">
+                      <div className="filter-item">
+                        <label htmlFor="sortRecipes">Sort By:</label>
+                        <select
+                          id="sortRecipes"
+                          value={sortOrder}
+                          onChange={(e) => setSortOrder(e.target.value)}
+                        >
+                          <option value="A-Z">A-Z</option>
+                          <option value="Z-A">Z-A</option>
+                          <option value="Old-New">Old-New</option>
+                          <option value="New-Old">New-Old</option>
+                        </select>
+                      </div>
+
+                      <div className="filter-item">
+                        <label htmlFor="categoryFilter">Category:</label>
+                        <select
+                          id="categoryFilter"
+                          value={selectedCategory}
+                          onChange={handleCategoryChange}
+                        >
+                          <option value="All">All</option>
+                          <option value="Breakfast">Breakfast</option>
+                          <option value="Meal">Meal</option>
+                          <option value="Smoothie">Smoothie</option>
+                          <option value="Dinner">Dinner</option>
+                        </select>
+                      </div>
+                    </div>
+
                     <table className="table transparent-recipe-table">
                       <tbody>
-                        {filteredRecipes
+                        {sortedRecipes
                           .reduce((rows, recipe, index) => {
                             if (index % 4 === 0) {
                               rows.push([]);
